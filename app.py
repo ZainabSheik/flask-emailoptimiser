@@ -1,4 +1,3 @@
-import os
 import re
 from transformers import T5ForConditionalGeneration, T5Tokenizer, pipeline
 import torch
@@ -66,9 +65,12 @@ def generate_subject_from_file(file_path):
     try:
         with open(file_path, 'r', encoding='utf-8') as file:
             email_text = file.read().strip()
+        print(f"Email Text: {email_text}")  # Debugging line
         
         # Extract subject and body
         lines = email_text.split("\n")
+        print(f"Lines: {lines}")  # Debugging line
+        
         original_subject = lines[0].replace("Subject:", "").strip()
         email_body = " ".join(lines[1:]).strip()
 
@@ -103,6 +105,7 @@ def generate_subject_from_file(file_path):
         return f"{sender} | {email_tone} | {filtered_summary}"
 
     except Exception as e:
+        print(f"Error: {e}")  # Debugging line
         return f"Error processing file: {e}"
 
 # Flask route for file upload
@@ -116,6 +119,9 @@ def upload_file():
         if file.filename == "":
             return jsonify({"error": "No selected file"}), 400
 
+        # Log file details
+        print(f"Uploaded file: {file.filename}")
+        
         # Save the uploaded file temporarily
         file_path = "temp_email.txt"
         file.save(file_path)
@@ -127,7 +133,5 @@ def upload_file():
     return render_template("index.html")
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))
-    from waitress import serve
-    serve(app, host="0.0.0.0", port=port)
-    
+    app.run(host="0.0.0.0", port=5000)
+
