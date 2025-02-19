@@ -1,6 +1,3 @@
-from app import app  # Import your Flask app instance
+from app import app  
 
-if __name__ == "__main__":
-    app.run()
-
-handler = app  # Required for Vercel deployment
+handler = app  # Vercel needs this
