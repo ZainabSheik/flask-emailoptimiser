@@ -1,14 +1,14 @@
 {
   "version": 2,
   "functions": {
-    "api/wsgi.py": {
-      "runtime": "python3.11"
+    "api/app.py": {
+      "runtime": "vercel-python@latest"
     }
   },
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "api/wsgi.py"
+      "dest": "api/app.py"
     }
   ]
 }
