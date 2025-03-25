@@ -27,6 +27,13 @@ Built using **Flask, NLP, HTML, CSS, and JavaScript**, this tool analyzes sentim
 
 ---
 
+## 🛠 Built With  
+
+- **Flask** – Manages backend and API handling.  
+- **Natural Language Processing (NLP)** – Extracts key information & sentiment.  
+- **HTML, CSS, JavaScript** – Ensures a smooth and responsive UI.  
+
+---
 ## 🚀 How to Set Up & Run  
 
 ### 1️⃣ Clone the Repository  
