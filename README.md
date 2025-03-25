@@ -35,8 +35,6 @@ git clone https://github.com/ZainabSheik/flask-emailoptimiser.git
 cd flask-emailoptimiser
 
 ## Install dependencies
-```bash
 pip install -r requirements.txt
 ##Run program
-```bash
 python app.py
